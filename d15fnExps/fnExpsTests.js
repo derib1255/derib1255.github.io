@@ -50,13 +50,13 @@ describe(" testsb double", function () {
 });
 
 describe(" test times100", function () {
-    it("tests times100 of 2", function () {
+    it("tests times100 of", function () {
         assert.strictEqual(times100(2), 2000);
     });
-    it("tests times100 of 5", function () {
+    it("tests times100 0", function () {
         assert.strictEqual(times100(5), 500);
     });
-    it("tests times100 of 6", function () {
+    it("tests times100 -10", function () {
         assert.strictEqual(times100(6), 600);
     });
 });
