@@ -87,7 +87,7 @@ function scoreExams(student,answer){​​​​​​
 letsecor=[];
 for(letx=0;x<student.length;x++){​​​​​​
 letcount=0;
-for(letk=0;k<student[x].length;k++){​​​​​​//k 0,1,2,3
+for(let k=0;k<student[x].length;k++){​​​​​​
 if(student[x][k]===answer[k]){​​​​​​
 count++;
                }​​​​​​
