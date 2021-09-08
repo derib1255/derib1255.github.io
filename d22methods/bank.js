@@ -26,10 +26,21 @@ bank.saveTransaction = function (id, amount) {
 
 };
 
+
+/* make sure current balance is > amount */
+//IMPLEMENT THIS
 bank.debit = function (id, amount) {
-    /* make sure current balance is > amount */
-    //IMPLEMENT THIS
+    const customer = bank.transactionsDB.find(customer => customer.customerId === id);
+
+    if (custome.getBalance > amount) {
+        return custome.getBalance - amount;
+    }
+    else {
+        return "can not ";
+    }
+
 };
+
 
 bank.credit = function (id, amount) {
     const balance = this.getBalance(id);
@@ -37,8 +48,23 @@ bank.credit = function (id, amount) {
     this.saveTransaction(id, amount);
 }
 
+
+//IMPLEMENT THIS
 bank.getBalance = function (id) {
-    //IMPLEMENT THIS
+    let i = 0;
+    let balnce
+    for (let a of bank.transactionsDB) {
+        if (id == a.id) {
+            for (let i = 0; i < a.customerTransactions; i++) {
+                blance += a.customerTransactions[i];
+
+            }
+
+
+
+        }
+        return balnce;
+    };
 };
 
 
@@ -46,9 +72,19 @@ bank.getBalance = function (id) {
 /**
  * @returns {number}  returns sum of all balances
  */
+
+//IMPLEMENT THIS
 bank.bankBalance = function () {
-    //IMPLEMENT THIS
+    bankblance = 0;
+    for (let a in bank.transactionsDB) {
+        let x = a.transactionsDB;
+        for (let i = 0; i < x.lenght; i++) {
+            bankblance += x.amount;
+        }
+    }
+    return bankbalance;
 };
+
 
 console.log("total balance should be 85: ", bank.bankBalance());
 bank.credit(1, 20);

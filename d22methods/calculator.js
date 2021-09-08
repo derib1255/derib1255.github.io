@@ -1,34 +1,23 @@
 "use strict";
 
-const { readFile, read } = require("fs");
+let calculator = {};
+// implement this
+calculator.read = function () {
+    this.a = +prompt("Enter first number", 0);
+    this.b = +prompt("Enter next number", 0);
+};
+calulator.sum = function () {
 
-const calculator = function () { };
+    return this.a + this.b;
+},
 
-let calculator = {
-    read() {
-        this.a = +prompt("Enter first number", 0);
-        this.b = +prompt("Enter next number", 0);
-    },
-    sum() {
-        return this.a + this.b;
-    },
-
-    mul() {
+    calculator.mul = function () {
         return this.a * this.b;
     },
 
-
-};
-
-calculator.read();
+    calculator.read();
 alert(calculator.sum());
 alert(calculator.mul());
-// implement this
-
-
-
-
-
 
 
 
