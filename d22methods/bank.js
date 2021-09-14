@@ -76,7 +76,7 @@ bank.getBalance = function (id) {
 //IMPLEMENT THIS
 bank.bankBalance = function () {
     bankblance = 0;
-    for (let a in bank.transactionsDB) {
+    for (let a of bank.transactionsDB) {
         let x = a.transactionsDB;
         for (let i = 0; i < x.lenght; i++) {
             bankblance += x.amount;

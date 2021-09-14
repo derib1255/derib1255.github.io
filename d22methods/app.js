@@ -33,18 +33,23 @@ function Accumulator() {
  */
 function Calculator() {
     //implement this
-    const calculator={};
+
     calculator.setvalues=function(x,y){
+       
         this.x=x;
         this.y=y;
-    }
+    },
     calculator.sum=function(){
         return this.x+this.y;
-    }
+    },
     calculator.mul=function(){
         return this.x+this.y;
     }
+
+
+}
+
+
     console.log(calculator. setvalues(2,3));
     console.log(calculator.sum);
     console.log(calculator.mul);
-}

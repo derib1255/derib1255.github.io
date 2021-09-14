@@ -96,11 +96,11 @@ function sortByAge(arr) {
             return1;
         }
         else if (a.id === b.id) {
-            return0;
+            return 0;
         }
         else
             return -1;
     });
-
+ 
 }
 
