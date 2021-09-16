@@ -66,3 +66,13 @@ function reverseListLoop(list) {
         alert(arr[i]);
     }
 }
+function multipleEvens(...params){
+    for(const element of params){
+        let productct=1;
+        if (element % 2==0){
+            productct=productct*element;
+        }
+    }
+    return produduct;
+}
+console.log("expect 0",multipleEvens())

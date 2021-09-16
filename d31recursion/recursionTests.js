@@ -1,53 +1,64 @@
 "use strict";
+/* global require */
+
 /* You need the assert and function name declarations to test in node.  
-Comment these out when you send it to the browser with the index.html mocha setup page. 
+Comment these out when you send it to the browser with the index.html mocha setup page.
+*/
 const assert = require("assert");  //always need this with node
-const myExports = require("./spread.js");  //with node need the name of your file with your functions here
-const copyArray = myExports.copyArray;  //do this for all of the functions used in the Mocha tests
-const concat = myExports.concat; 
-const findMin = myExports.findMin; 
-const combineObjs = myExports.combineObjs; 
-*/
+const myExports = require("./recursion.js");  //with node need the name of your file with your functions here
+const sumTo = myExports.sumTo;  //do this for all of the functions used in the Mocha tests
+const factorial = myExports.factorial; 
+const fibonacci = myExports.fibonacci; 
+
+/* the following are for Thursday */
+const outputList = myExports.outputList; 
+const outputListLoop = myExports.outputListLoop; 
+const reverseList = myExports.reverseList; 
+const reverseListLoop = myExports.reverseListLoop; 
 
 
-/*
-a)	Copy an array
-b)	Concatenate arrays into a new array
-c)	Concatenate an array and a new array element
-d)	Use an array as arguments
-e)	Use Math.min and Math.max
-f)	Combine several objects into a single object
-*/
+let list = {
+    value: 1,
+    next: {
+      value: 2,
+      next: {
+        value: 3,
+        next: {
+          value: 4,
+          next: null
+        }
+      }
+    }
+  };
 
-
-describe("spread operator tests", function () {
-    it("tests clone array", function () {
-        const oldArr = [1, 2, 3];
-        const newArr = copyArray(oldArr);
-        assert.deepEqual(newArr, oldArr);
-        oldArr.push[4];
-        assert.deepEqual(oldArr, [1, 2, 3]);
+describe("recursion tests", function () {
+    it("tests summing by recursion", function () {
+        assert.strictEqual(sumTo(5), 15);
+        assert.strictEqual(sumTo(10), 55);
+    });
+    it("tests factorial", function () {
+        assert.strictEqual(factorial(5), 120);
+        assert.strictEqual(factorial(10), 3628800);
     });
 
-    it("tests concatenate arrays", function () {
-        const arr1 = [1, 2, 3];
-        const arr2 = [4, 5, 6];
-        assert.deepEqual(concat(arr1, arr2), [1, 2, 3, 4, 5, 6]);
+    it("tests fibonacci 10", function () {
+        assert.strictEqual(fibonacci(10), 55);
     });
-
-    it("tests Math.min", function () {
-        const arr1 = [1, 2, 3];
-        const arr2 = [4, 5, 6, 7, 8, 0];
-        assert.strictEqual(findMin(...arr1), 1);
-        assert.strictEqual(findMin(...arr2), 0);
+    it("tests fibonacci 30", function () {
+        assert.strictEqual(fibonacci(30), 832040);
     });
-
-    it("tests combine objects", function () {
-        const obj1 = { prop1: 1, prop2: 2 };
-        const obj2 = { prop3: 1, prop4: 2 };
-
-        assert.deepEqual(combineObjs(obj1, obj2), { prop1: 1, prop2: 2, prop3: 1, prop4: 2 });
+    it("recursive version prints 1 2 3 4 to console", function () {
+        assert.strictEqual(outputList(list), "1 2 3 4 printed to console");
     });
+    it("iterative version prints 1 2 3 4 to console", function () {
+        assert.strictEqual(outputListLoop(list), "1 2 3 4 printed to console");
+    }); 
 
+    it("recursive version prints 4 3 2 1 to console", function () {
+        assert.strictEqual(reverseList(list), "4 3 2 1 printed to console");
+    });    
+    it("loop version prints 4 3 2 1 to console", function () {
+        assert.strictEqual(reverseListLoop(list), "4 3 2 1 printed to console");
+    });    
 
 });
