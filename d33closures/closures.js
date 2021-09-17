@@ -13,8 +13,9 @@ module.exports = { inArray, inBetween, byField, makeArmy }; //add all of your fu
  */
 function inArray(arr) {
 
-
-
+  return function (x) {
+    return arr.includes(x);
+  }
 }
 
 /**
@@ -24,7 +25,11 @@ function inArray(arr) {
  * @returns {Function} returns a function that tests whether its argument is inside the range
  * 
  */
+
 function inBetween(low, high) {
+  return function (x) {
+    return x >= low && x <= high;
+  };
 
 
 }
@@ -36,7 +41,9 @@ function inBetween(low, high) {
  */
 function byField(fieldName) {
 
+  return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
 }
+
 
 
 /**
@@ -44,9 +51,19 @@ function byField(fieldName) {
  */
 function makeArmy() {
 
+  let shooters = [];
+
+  for (let i = 0; i < 10; i++) {
+    let shooter = function () {
+      alert(i);
+    };
+    shooters.push(shooter);
+  }
+
+  return shooters;
+
 }
 
-let army = makeArmy();
 
-  //army[0](); // the shooter number 0 shows 10
-  //army[5](); // and number 5 also outputs 10...
+
+
